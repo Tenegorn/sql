@@ -43,7 +43,7 @@ CREATE TABLE `categories` (
   `categoryName` varchar(45),
   `description` varchar(255),
   PRIMARY KEY (`categoryID`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 INSERT INTO `categories` VALUES 
@@ -67,7 +67,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`productID`),
   KEY `category_id_fk` (`categoryID`),
   CONSTRAINT `category_id_fk` FOREIGN KEY (`categoryID`) REFERENCES `categories` (`categoryID`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
 
 INSERT INTO `products` VALUES 
@@ -92,7 +92,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`orderID`),
    KEY `customers_id_fk` (`customerID`),
   CONSTRAINT `customers_id_fk` FOREIGN KEY (`customerID`) REFERENCES `customers` (`customerID`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
   
   
@@ -121,7 +121,7 @@ CREATE TABLE `orderDetails` (
   CONSTRAINT `product_id_fk` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`),
   KEY `order_id_fk` (`orderID`),
   CONSTRAINT `order_id_fk` FOREIGN KEY (`orderID`) REFERENCES `orders` (`orderID`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
  
  
 INSERT INTO `orderDetails` VALUES 
